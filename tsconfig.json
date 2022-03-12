@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "Components/Editor/TextEditor.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "Components/Editor/TextEditor.jsx", "pages/api/middleware/mongodb.js", "pages/api/models/doc.js"],
   "exclude": ["node_modules"]
 }
