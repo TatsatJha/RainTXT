@@ -1,5 +1,5 @@
 import React from 'react'
-import TextEditor from '../Components/Editor/TextEditor'
+import TextEditor from '../Components/Edit/TextEditor'
 
 function edit() {
   return (

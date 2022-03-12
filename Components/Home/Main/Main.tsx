@@ -1,8 +1,12 @@
 import React from 'react'
 import NavBar from './NavBar'
+import Docs from "./Docs"
 
 export default function Main() {
   return (
-    <div>Main</div>
+    <div>
+      <Docs></Docs>
+      <button></button>
+    </div>
   )
 }

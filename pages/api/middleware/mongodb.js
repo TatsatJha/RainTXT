@@ -6,7 +6,7 @@ const connectDB = handler => async (req, res) => {
       return handler(req, res);
     }
     // Use new db connection
-    await mongoose.connect("mongodb://localhost", {
+    await mongoose.connect("mongodb://localhost/raintxt", {
       useUnifiedTopology: true,
       // useFindAndModify: false,
       // useCreateIndex: true,
