@@ -1,9 +1,10 @@
+import axios from 'axios'
 import React from 'react'
 import {BsFolderPlus} from "react-icons/bs"
 
 export default function CrtDir() {
     const  makeDir = ()=>{
-
+        axios.post("http://localhost:3000/api/dir", {title: "djlfkdjs", docs: ""})
     }
   return (
     <div className='flex p-6'>

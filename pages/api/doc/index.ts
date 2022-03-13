@@ -20,7 +20,7 @@ async function handler( req: NextApiRequest, res: NextApiResponse) {
         title: req.body.title,
         content: req.body.content,
         date: `${month} ${date.getDate()}, ${date.getFullYear()}`,
-        folder: ""
+        dir: ""
       })
       try {
         const newDoc = await docEntry.save()

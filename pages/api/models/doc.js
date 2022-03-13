@@ -14,7 +14,7 @@ const docSchema = new Schema({
         type: String,
         required: true
     },
-    folder:{
+    dir:{
         type: String,
         required: true
     }
