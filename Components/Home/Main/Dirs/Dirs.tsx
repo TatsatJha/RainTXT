@@ -15,7 +15,7 @@ export default function Dirs() {
     getDirs()}, [dir])
 
     return (
-        <div className='grid grid-cols-4 gap-4 justify-evenly ml-64'>
+        <div className='grid grid-cols-4 gap-4 justify-evenly ml-64 my-4'>
             {dir.map((dirs) => (<Dir title={dirs.title} id={dirs._id} v={dirs._v}></Dir>))}
         </div>
     )

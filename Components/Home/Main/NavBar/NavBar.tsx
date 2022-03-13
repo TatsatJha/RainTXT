@@ -1,6 +1,6 @@
 import React from 'react'
-import CrtBtn from '../../../Misc/CrtBtn'
-import CrtDir from '../../../Misc/CrtDir'
+import CrtBtn from '../Docs/CrtBtn'
+import CrtDir from '../Dirs/CrtDir'
 
 export default function NavBar() {
   return (
