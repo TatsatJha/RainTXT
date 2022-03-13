@@ -4,24 +4,24 @@ import Edit from '../../Components/Edit/Edit'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 
-export default function editDoc() {
-    const router = useRouter()
-    const { id } = router.query
+
+
+export async function getServerSideProps({params}:any) {
+  const existingText = await axios.get(`http://localhost:3000/api/doc/${params.id}}`)
+  return{ props: { content: existingText} }
+}
+
+export default function editDoc({ content }: any) {
     const [text, setText] = useState("")
 
-
     useEffect(()=> {
-      const getDocs = async () => {
-          await axios.get(`http://localhost:3000/api/doc/${id}`).then((response) => {
-              const existingText = response.data.content
-              console.log(existingText)
-              setText(existingText)
-          })
+      const getText = () => {
+        setText(content)
       }
-  getDocs()}, [])
+  getText()}, [])
 
     const handleSave = ()=>{
-      axios.put(`http://localhost:3000/api/doc/${id}`, {content:text})
+      // axios.put(`http://localhost:3000/api/doc/${id}`, {content:text})
     }
   return (
     <div className=''>
