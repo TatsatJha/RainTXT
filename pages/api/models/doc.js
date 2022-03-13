@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 var Schema = mongoose.Schema
 
-const blogSchema = new Schema({
+const docSchema = new Schema({
     title:{
         type:String,
         required: true
@@ -18,5 +18,5 @@ const blogSchema = new Schema({
 
 mongoose.models = {}
 
-var doc = mongoose.model("blog", blogSchema)
+var doc = mongoose.model("doc", docSchema)
 export default doc

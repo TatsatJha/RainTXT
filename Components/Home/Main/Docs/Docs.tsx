@@ -15,7 +15,7 @@ export default function docs() {
     getDocs()}, [doc])
 
     return (
-        <div className='w-1/2'>
+        <div className='grid grid-cols-4 gap-4 justify-evenly ml-64'>
             {doc.map((docs) => (<Doc date={docs.date} title={docs.title} content={docs.content} id={docs._id} v={docs._v}></Doc>))}
         </div>
     )

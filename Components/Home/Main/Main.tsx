@@ -6,7 +6,7 @@ export default function Main() {
   return (
     <div>
       <Docs></Docs>
-      <button></button>
+      <NavBar></NavBar>
     </div>
   )
 }
