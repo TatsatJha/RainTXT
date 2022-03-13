@@ -13,6 +13,10 @@ const docSchema = new Schema({
     date:{
         type: String,
         required: true
+    },
+    folder:{
+        type: String,
+        required: true
     }
 })
 
