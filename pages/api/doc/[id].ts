@@ -17,15 +17,18 @@ async function handler( req: NextApiRequest, res: NextApiResponse) {
         } catch (err){res.status(500)}
         break;
     case "PUT":
-        const updatedDoc = new Doc({
-            title: req.body.title,
-          })
-        try {
-            const doc = await Doc.findById(id)
-            console.log(doc)
-            if(doc === null){res.status(404).json({message:"not found"})}
+        const {title, content} = req.body
+        const updatedDoc = (title != null && content != null) ? {
+            title: title,
+            content: content
+        } : (title != null) ? {
+            title: title
+        } : {
+            content: content
+        }
 
-            await Doc.findByIdAndUpdate(id, {title: req.body.title})
+        try {
+            await Doc.findByIdAndUpdate(id, updatedDoc)
             res.status(200).json(updatedDoc)
         } catch (err) {res.status(500)}
         break;
@@ -38,7 +41,7 @@ async function handler( req: NextApiRequest, res: NextApiResponse) {
         } catch (error:any) {res.status(500)}
         break;
     default:
-        res.setHeader('Allow', ['GET', 'PUT', 'DELETE'])
+        res.setHeader('Allow', ['GET', 'PUT', "PATCH", 'DELETE'])
         res.status(405).end(`Method ${method} Not Allowed`) 
         break;   
     }

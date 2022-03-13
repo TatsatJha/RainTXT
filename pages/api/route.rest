@@ -1,4 +1,4 @@
-GET http://localhost:3000/api/dir
+GET http://localhost:3000/api/doc
 
 ###
 POST http://localhost:3000/api/doc 
@@ -6,4 +6,12 @@ Content-Type: application/json
 
 {
 "title": "First Ever Doc", "content": ""
+}
+
+###
+PUT http://localhost:3000/api/doc/622cdefeab01d44d4c5cf58a
+Content-Type:  application/json
+
+{
+    "content": "Huzzah! New Text 2 Electric Boogaloo"
 }
