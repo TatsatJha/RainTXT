@@ -7,21 +7,24 @@ import axios from 'axios'
 
 
 export async function getServerSideProps({params}:any) {
-  const existingText = await axios.get(`http://localhost:3000/api/doc/${params.id}}`)
-  return{ props: { content: existingText} }
+  const res = await fetch(`http://localhost:3000/api/doc/${params.id}`)
+  const data = await res.json()
+  return{ props: { data} }
 }
 
-export default function editDoc({ content }: any) {
+export default function editDoc({ data }: any) {
+  const router = useRouter()
+  const {id} = router.query
     const [text, setText] = useState("")
 
     useEffect(()=> {
       const getText = () => {
-        setText(content)
+        setText(data.content)
       }
   getText()}, [])
 
     const handleSave = ()=>{
-      // axios.put(`http://localhost:3000/api/doc/${id}`, {content:text})
+      axios.put(`http://localhost:3000/api/doc/${id}`, {content:text})
     }
   return (
     <div className=''>
