@@ -11,15 +11,9 @@ export default function DocTitle(props:any) {
         setOpen(!open)
       }
   return (
-    <div className='flex justify-between p-4'>
-        {/* {
-        open ? <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} onAbort={handleTitleSave}></input>
-        : <>
-        <h1 className='text-4xl font-bold ' onClick={()=>setOpen(!open)}>{title}</h1>
-        <BsFileEarmark size="36px"></BsFileEarmark>
-        </>
-        } */}
-        <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} className="text-4xl font-bold" onBlur={handleTitleSave}></input>
+    <div className='flex justify-between p-4 '>
+
+        <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} className="text-4xl font-bold block w-72" onBlur={handleTitleSave}></input>
         <BsFileEarmark size="36px"></BsFileEarmark>
 
     </div>
