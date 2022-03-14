@@ -29,11 +29,11 @@ async function handler( req: NextApiRequest, res: NextApiResponse) {
         res.status(400).json(error.message)
       }
       break;
-    case "DELETE":
-      try {
-        const docs = await doc.deleteMany()
-        res.json(docs)
-      } catch (error:any) {res.status(500)}
+    // case "DELETE":
+    //   try {
+    //     const docs = await doc.deleteMany()
+    //     res.json(docs)
+    //   } catch (error:any) {res.status(500)}
       break;
   }
   
