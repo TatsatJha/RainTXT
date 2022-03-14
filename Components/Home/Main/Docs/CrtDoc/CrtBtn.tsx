@@ -5,7 +5,7 @@ import {BsFileEarmarkPlus} from "react-icons/bs"
 export default function CrtBtn() {
 
     const makeDoc = ()=>{
-        axios.post("http://localhost:3000/api/doc", {title: "djlfkdjs", content: "dljfdas;flk"})
+        axios.post("http://localhost:3000/api/doc", {title: "djlfkdjs", content: "dljfdas;flk", dir:""})
     }
 
   return (
