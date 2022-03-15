@@ -8,9 +8,9 @@ export default function DltDoc(props: any) {
     }
   return (
     <>
-    <button onClick={handleDelete}>
-        <BsTrash size = "24px"></BsTrash>
-    </button>
+        <button onClick={handleDelete}>
+            <BsTrash size = "24px"></BsTrash>
+        </button>
     </>
   )
 }
