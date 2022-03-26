@@ -26,7 +26,7 @@ export default function editDoc({ data }: any) {
       axios.put(`http://localhost:3000/api/doc/${id}`, {content:text})
     }
   return (
-    <div className='bg-slate-50'>
+    <div className='bg-slate-50 m-0'>
         <Edit setText= {setText} text= {text}></Edit>
         <button onClick={handleSave}>Save</button>
     </div>
