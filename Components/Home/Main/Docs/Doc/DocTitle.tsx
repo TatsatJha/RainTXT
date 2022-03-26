@@ -8,6 +8,7 @@ export default function DocTitle(props:any) {
 
     const handleTitleSave = ()=>{
         axios.put(`http://localhost:3000/api/doc/${props.id}`, {title:title})
+        props.setRefresh(!props.refresh)
         setOpen(!open)
       }
   return (

@@ -1,6 +1,5 @@
 import React from 'react'
-import TextEditor from '../../Components/Edit/TextEditor'
-import Edit from '../../Components/Edit/Edit'
+import Edit from '../../Components/TextEditor'
 
 function edit() {
   return (

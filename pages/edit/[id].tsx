@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import TextEditor from '../../Components/Edit/TextEditor'
-import Edit from '../../Components/Edit/Edit'
+import Edit from '../../Components/TextEditor'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 

@@ -3,10 +3,10 @@ import NavBar from './NavBar'
 import Docs from "./Docs"
 import Dirs from "./Dirs"
 
-export default function Main() {
+export default function Main(props:any) {
   return (
     <div>
-      <Docs></Docs>
+      <Docs data={props.data}></Docs>
       <Dirs></Dirs>
       <NavBar></NavBar>
     </div>
