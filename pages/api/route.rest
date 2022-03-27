@@ -9,11 +9,11 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3000/api/doc/622cdefeab01d44d4c5cf58a
+PUT http://localhost:3000/edit/622feee4ab01d44d4cb0543e
 Content-Type:  application/json
 
 {
-    "content": "Huzzah! New Text 2 Electric Boogaloo"
+    "content": ""
 }
 
 ###
