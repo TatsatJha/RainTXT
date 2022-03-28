@@ -1,7 +1,7 @@
 import SideBar from './SideBar'
 import Page from "./Page"
 import ToolBar from './ToolBar'
-import { useEffect, useState, useRef, MutableRefObject } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 export default function TextEditor(props:any) {
 
@@ -36,21 +36,36 @@ export default function TextEditor(props:any) {
     // }
     const nextPage = useRef<any>(null)
     const currentPage = useRef<any>(null)
-
+    const [localText, setLocalText] = useState<Array<string>>()
     const handleEnter = () =>{
         console.log("I am here")
         // props.setText("yoink")
     }
+    useEffect(() => {
+        const thing = () => {
+            const thing:Array<string> = ["Okay some random text for now", "some more random text for now"]
+            setLocalText(thing)
+        }
+    thing()}, [])
+    
+    const handler = (text: string)=> {
+        return 
+    }
+
     return (
         <div>
             <ToolBar></ToolBar>
             {/* {division.length == 0 ?  <Page text={props.text} setText={props.setText}></Page> : division?.map(text => <Page text={text} setText={props.setText}></Page>)} */}
-            <div ref={currentPage} onKeyDown={(e)=> {nextPage.current.Page.focus()} }>
-                <Page text={props.text} setText={props.setText}></Page>
-            </div>
-            <div ref={nextPage}>
-                <Page text= {""} setText={props.setText}></Page>
-            </div>
+            {/* <div ref={currentPage} onKeyDown={(e)=> {currentPage.current.blur()} }> */}
+                {/* <Page text={props.text} setText={props.setText}></Page> */}
+            {/* </div> */}
+            {/* <div ref={nextPage}> */}
+                {/* <Page text= {""} setText={props.setText}></Page> */}
+            {/* </div> */}
+            {/* {console.log(localText)}
+            {console.log(localText.indexOf("Okay some random text for now"))} */}
+            {localText?.map(text => <Page text={text} setText={setLocalText}> </Page>)}
+            {/* {localText.map(text => <Page text={text} setText={setLocalText}> </Page>)} */}
         </div>
     )
 }
