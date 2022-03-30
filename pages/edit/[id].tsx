@@ -14,20 +14,30 @@ export async function getServerSideProps({params}:any) {
 export default function editDoc({ data }: any) {
   const router = useRouter()
   const {id} = router.query
-    const [text, setText] = useState("")
+  const [text, setText] = useState("")
+  const [textDivisions, setTextDivisions] = useState([""])
 
     useEffect(()=> {
       const getText = () => {
-        setText(data.content)
+        const text: string = data.content
+        setText(text)
+        setTextDivisions(text.split(" "))
       }
   getText()}, [])
+
+  // useEffect(()=>{
+  //   const resetLocals = () =>{
+  //     setText(textDivisions.join(" "))
+  //     setTextDivisions(text.split(" "))
+  //   }
+  // resetLocals()}, [])
 
     const handleSave = ()=>{
       axios.put(`http://localhost:3000/api/doc/${id}`, {content:text})
     }
   return (
     <div className='bg-slate-50 m-0'>
-        <Edit setText= {setText} text= {text}></Edit>
+        <Edit textDivisions={textDivisions} setTextDivisions={setTextDivisions} ></Edit>
         <button onClick={handleSave}>Save</button>
     </div>
   )
