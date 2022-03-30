@@ -16,6 +16,7 @@ export default function editDoc({ data }: any) {
   const {id} = router.query
   const [text, setText] = useState("")
   const [textDivisions, setTextDivisions] = useState([""])
+  // const [renderingDivisions, setRenderingDivisions] = useState(textDivisions)
 
     useEffect(()=> {
       const getText = () => {
@@ -27,7 +28,8 @@ export default function editDoc({ data }: any) {
 
   useEffect(()=>{
     const resetText = () =>{
-      setText(textDivisions.join(" "))
+      if(textDivisions!==undefined) {const text = textDivisions.join(" ")}
+      console.log(text)
     }
   resetText()}, [textDivisions])
 
@@ -36,7 +38,7 @@ export default function editDoc({ data }: any) {
     }
   return (
     <div className='bg-slate-50 m-0'>
-        <Edit textDivisions={textDivisions} setTextDivisions={setTextDivisions} ></Edit>
+        <Edit textDivisions={textDivisions} setText={setText} setTextDivisions={setTextDivisions} ></Edit>
         <button onClick={handleSave}>Save</button>
     </div>
   )

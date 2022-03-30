@@ -50,7 +50,7 @@ export default function TextEditor(props: any) {
         <div>
             <ToolBar></ToolBar>
             {
-                textDivisions.map((text, id) => <Page allText = {textDivisions} text={text} setTextDivisions={props.setTextDivisions} key={id}> </Page>)
+                textDivisions !== undefined ? textDivisions.map((text, id) => <Page allText = {textDivisions} text={text} setTextDivisions={props.setTextDivisions} setText={props.setText} realDivisons={props.realDivisons} key={id}> </Page>) : null
             }
         </div>
     )
