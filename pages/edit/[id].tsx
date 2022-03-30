@@ -30,10 +30,8 @@ export default function editDoc({ data }: any) {
     const resetText = () =>{
       if(textDivisions!==undefined) {
         const text = textDivisions.join(" ")
-        console.log(text)
         setText(text)
       }
-      
     }
   resetText()}, [textDivisions])
 
