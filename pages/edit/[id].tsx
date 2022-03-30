@@ -25,12 +25,11 @@ export default function editDoc({ data }: any) {
       }
   getText()}, [])
 
-  // useEffect(()=>{
-  //   const resetLocals = () =>{
-  //     setText(textDivisions.join(" "))
-  //     setTextDivisions(text.split(" "))
-  //   }
-  // resetLocals()}, [])
+  useEffect(()=>{
+    const resetText = () =>{
+      setText(textDivisions.join(" "))
+    }
+  resetText()}, [textDivisions])
 
     const handleSave = ()=>{
       axios.put(`http://localhost:3000/api/doc/${id}`, {content:text})
