@@ -16,10 +16,8 @@ function Page(props:any) {
     }
     useEffect(()=> {
       const setDivisions = () => {
-        props.setTextDivisions(() => {
-          [localText, "old thing"]
-        })
-        console.log(props.realDivisons)
+        props.setTextDivisions([localText, "old thing"])
+        console.log(props.allText)
       }
   setDivisions()}, [localText])
 

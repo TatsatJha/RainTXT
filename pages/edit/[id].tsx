@@ -28,8 +28,12 @@ export default function editDoc({ data }: any) {
 
   useEffect(()=>{
     const resetText = () =>{
-      if(textDivisions!==undefined) {const text = textDivisions.join(" ")}
-      console.log(text)
+      if(textDivisions!==undefined) {
+        const text = textDivisions.join(" ")
+        console.log(text)
+        setText(text)
+      }
+      
     }
   resetText()}, [textDivisions])
 
