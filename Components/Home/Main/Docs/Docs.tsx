@@ -9,7 +9,7 @@ export default function docs(props:any) {
         const getDocs = async () => {
             setDocs(props.data)
         }
-    getDocs()})
+    getDocs()},)
     
     return (
         <div className='grid grid-cols-4 gap-4 justify-evenly ml-64'>

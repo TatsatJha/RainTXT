@@ -8,7 +8,7 @@ const docSchema = new Schema({
     },
     content:{
         type:String,
-        required: true
+        required: false
     },
     date:{
         type: String,
