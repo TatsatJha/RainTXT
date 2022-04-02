@@ -6,9 +6,9 @@ import Dirs from "./Dirs"
 export default function Main(props:any) {
   return (
     <div>
-      <Docs data={props.data}></Docs>
+      <Docs refresh={props.refresh} data={props.data}></Docs>
       <Dirs></Dirs>
-      <NavBar></NavBar>
+      <NavBar refresh={props.refresh}></NavBar>
     </div>
   )
 }

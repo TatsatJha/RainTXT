@@ -2,7 +2,7 @@ import React from 'react'
 import axios from "axios"
 import {BsFileEarmarkPlus} from "react-icons/bs"
 
-export default function CrtBtn() {
+export default function CrtBtn(props:any) {
 
     const makeDoc = ()=>{
         axios.post("http://localhost:3000/api/doc", {title: "djlfkdjs", content: "dljfdas;flk", dir:""})
