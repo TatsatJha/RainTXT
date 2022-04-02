@@ -41,7 +41,8 @@ function Page(props:any) {
                     resize: "none",
                     overflow: "hidden"
                 }
-            } value = {localText || props.text}  onChange={handler} className='border-2 px-[1in] py-[1in] w-[8.5in] h-[11in] shadow-xl mt-28'></textarea>
+            } value = {localText || props.text}  onChange={handler} className='border-2 px-[1in] py-[1in] w-[8.5in] h-[11in] inline shadow-xl mt-28'></textarea>
+            <canvas width="8.5in" height="11in"></canvas>
         </div>
     </>
   )
