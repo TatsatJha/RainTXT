@@ -1,7 +1,7 @@
 import SideBar from './SideBar'
 import Page from "./Page"
 import ToolBar from './ToolBar'
-import { useEffect, useState, useRef } from 'react'
+import Title from "../Home/Header/Title"
 
 export default function TextEditor(props: any) {
 
@@ -47,6 +47,7 @@ export default function TextEditor(props: any) {
 
     return (
         <div>
+            <Title page="/edit"></Title>
             <ToolBar></ToolBar>
             {/* {
                 textDivisions !== undefined ? textDivisions.map((text, id) => <Page allText = {textDivisions} text={text} setTextDivisions={props.setTextDivisions} setText={props.setText} realDivisons={props.realDivisons} index={id}> </Page>) : null
