@@ -44,14 +44,15 @@ export default function TextEditor(props: any) {
     //     }
     // thing()}, [])
 
-    const textDivisions:Array<string> = props.textDivisions
-    console.log(textDivisions)
+
     return (
         <div>
             <ToolBar></ToolBar>
-            {
+            {/* {
                 textDivisions !== undefined ? textDivisions.map((text, id) => <Page allText = {textDivisions} text={text} setTextDivisions={props.setTextDivisions} setText={props.setText} realDivisons={props.realDivisons} index={id}> </Page>) : null
-            }
+            } */}
+
+            <Page text={props.text} setText={props.setText}></Page>
         </div>
     )
 }

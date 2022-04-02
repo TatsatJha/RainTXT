@@ -15,32 +15,31 @@ export default function editDoc({ data }: any) {
   const router = useRouter()
   const {id} = router.query
   const [text, setText] = useState("")
-  const [textDivisions, setTextDivisions] = useState([""])
+  // const [textDivisions, setTextDivisions] = useState([""])
   // const [renderingDivisions, setRenderingDivisions] = useState(textDivisions)
 
     useEffect(()=> {
       const getText = () => {
         const text: string = data.content
         setText(text)
-        setTextDivisions(text.split(" "))
       }
   getText()}, [])
 
-  useEffect(()=>{
-    const resetText = () =>{
-      if(textDivisions!==undefined) {
-        const text = textDivisions.join(" ")
-        setText(text)
-      }
-    }
-  resetText()}, [textDivisions])
+  // useEffect(()=>{
+  //   const resetText = () =>{
+  //     if(textDivisions!==undefined) {
+  //       const text = textDivisions.join(" ")
+  //       setText(text)
+  //     }
+  //   }
+  // resetText()}, [textDivisions])
 
     const handleSave = ()=>{
       axios.put(`http://localhost:3000/api/doc/${id}`, {content:text})
     }
   return (
     <div className='bg-slate-50 m-0'>
-        <Edit textDivisions={textDivisions} setText={setText} setTextDivisions={setTextDivisions} ></Edit>
+        <Edit setText={setText} text={text}></Edit>
         <button onClick={handleSave}>Save</button>
     </div>
   )

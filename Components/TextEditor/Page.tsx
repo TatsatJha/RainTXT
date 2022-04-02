@@ -11,25 +11,25 @@ function Page(props:any) {
     //     }
     // change()}, [props.text])
 
-    const handler = (e:any) => {
-      setLocalText(e.target.value)
-    }
-    useEffect(()=> {
-      const setDivisions = () => {
-        let newArray:any = []
-        props.allText.forEach((text: any, index:any) => {
-          if(index === props.index){
-            newArray.push(localText)
-          }
-          else if(text===""){
-          }
-          else{
-            newArray.push(text)
-          }
-        });
-        props.setTextDivisions(newArray)
-      }
-  setDivisions()}, [localText])
+  //   const handler = (e:any) => {
+  //     setLocalText(e.target.value)
+  //   }
+  //   useEffect(()=> {
+  //     const setDivisions = () => {
+  //       let newArray:any = []
+  //       props.allText.forEach((text: any, index:any) => {
+  //         if(index === props.index){
+  //           newArray.push(localText)
+  //         }
+  //         else if(text===""){
+  //         }
+  //         else{
+  //           newArray.push(text)
+  //         }
+  //       });
+  //       props.setTextDivisions(newArray)
+  //     }
+  // setDivisions()}, [localText])
 
   return (
       <>
@@ -41,7 +41,7 @@ function Page(props:any) {
                     resize: "none",
                     overflow: "hidden"
                 }
-            } value = {localText || props.text}  onChange={handler} className='border-2 px-[1in] py-[1in] w-[8.5in] h-[11in] inline shadow-xl mt-28'></textarea>
+            } value = {props.text}  onChange={(e)=>props.setText(e.target.value)} className='border-2 px-[1in] py-[1in] w-[8.5in] h-[11in] inline shadow-xl mt-28'></textarea>
             <canvas width="8.5in" height="11in"></canvas>
         </div>
     </>
