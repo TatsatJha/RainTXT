@@ -18,3 +18,6 @@ Content-Type:  application/json
 
 ###
 GET http://localhost:3000/api/doc/622cdefeab01d44d4c5cf58a
+
+###
+DELETE http://localhost:3000/api/dir
