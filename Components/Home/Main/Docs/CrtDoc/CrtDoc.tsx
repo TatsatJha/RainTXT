@@ -3,10 +3,14 @@ import axios from "axios"
 import {BsFileEarmarkPlus} from "react-icons/bs"
 
 export default function CrtBtn(props:any) {
-  const [directory, setDirectory] = useState<number>()
+  const dirId = props.id == null ? null : props.id.id
+
     const makeDoc = ()=>{
-      axios.post("http://localhost:3000/api/doc", {title: "Untitled", content: "", dir: directory})
+      axios.post("http://localhost:3000/api/doc", {title: "Untitled", content: "", dir: dirId})
       props.refresh()
+      if(dirId !== null){
+        axios.put(`http://localhost:3000/api/dir/${dirId}`, {})
+      }
     }
   return (
     <div className='flex p-6'>

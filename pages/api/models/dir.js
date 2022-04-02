@@ -9,6 +9,10 @@ const dirSchema = new Schema({
     docs:{
         type:Array,
         required: true
+    },
+    dirs:{
+        type: Array,
+        required: true
     }
 })
 
