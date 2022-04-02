@@ -3,9 +3,9 @@ import axios from "axios"
 import {BsFileEarmarkPlus} from "react-icons/bs"
 
 export default function CrtBtn(props:any) {
-
+  const [directory, setDirectory] = useState<number>()
     const makeDoc = ()=>{
-      axios.post("http://localhost:3000/api/doc", {title: "Untitled", content: "", dir:""})
+      axios.post("http://localhost:3000/api/doc", {title: "Untitled", content: "", dir: directory})
       props.refresh()
     }
   return (

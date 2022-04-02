@@ -7,7 +7,7 @@ const dirSchema = new Schema({
         required: true
     },
     docs:{
-        type:JSON,
+        type:Array,
         required: true
     }
 })

@@ -6,7 +6,7 @@ export default function CrtDir() {
 const [open, setOpen] = useState(false)
 const [value, setValue] = useState("Untitled Folder")
     const  makeDir = ()=>{
-        axios.post("http://localhost:3000/api/dir", {title: value, docs: ""})
+        axios.post("http://localhost:3000/api/dir", {title: value, docs: []})
         setOpen(!open)
     }
 

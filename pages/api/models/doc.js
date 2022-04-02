@@ -15,7 +15,7 @@ const docSchema = new Schema({
         required: true
     },
     dir:{
-        type: String,
+        type: Number,
         required: false
     }
 })

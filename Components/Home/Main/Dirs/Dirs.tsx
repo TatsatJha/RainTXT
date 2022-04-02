@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Dir from "./Dir"
+import Link from 'next/link'
 
 export default function Dirs() {
     const [dir, setDirs] = useState<any[]>([])
