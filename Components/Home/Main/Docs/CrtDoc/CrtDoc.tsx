@@ -9,7 +9,7 @@ export default function CrtBtn(props:any) {
       axios.post("http://localhost:3000/api/doc", {title: "Untitled", content: "", dir: dirId})
       props.refresh()
       if(dirId !== null){
-        axios.put(`http://localhost:3000/api/dir/${dirId}`, {})
+        axios.patch(`http://localhost:3000/api/dir/${dirId}`, {})
       }
     }
   return (

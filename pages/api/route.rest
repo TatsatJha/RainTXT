@@ -17,7 +17,12 @@ Content-Type:  application/json
 }
 
 ###
-GET http://localhost:3000/api/doc/622cdefeab01d44d4c5cf58a
+GET http://localhost:3000/api/dir/62486fa29e951c280ec251d2
 
 ###
-DELETE http://localhost:3000/api/dir
+PATCH http://localhost:3000/api/dir/62486fa29e951c280ec251d2
+Content-Type:  application/json
+
+{
+    "docs": ["But now we have to adjust"]
+}

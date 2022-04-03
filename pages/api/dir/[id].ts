@@ -1,40 +1,53 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import connectDb from "../middleware/mongodb"
-import dir from "../models/dir"
+import Dir from "../models/dir"
 
 
 async function handler( req: NextApiRequest, res: NextApiResponse) {
+    const {
+      query: { id },
+      method,
+    } = req
 
+    switch (method){
 
-  switch (req.method){
     case "GET":
       try {
-        const dirs = await dir.find()
-        res.json(dirs)
+        const dir = await Dir.findById(id)
+        if(dir === null){res.status(404).json({message:"not found"})}
+        res.status(200).json(dir)
       } catch (err){res.status(500)}
       break;
-    case "POST":
-      const date = new Date
-      const month = new Intl.DateTimeFormat("en-us", {month: "long"}).format(date)
-      const dirEntry = new dir({
-        title: req.body.title,
-        content: req.body.content,
-        date: `${month} ${date.getDate()}, ${date.getFullYear()}`
-      })
-      try {
-        const newDir = await dirEntry.save()
-        res.status(201).json(newDir)
-      } catch (error: any) {
-        res.status(400).json(error.message)
-      }
-      break;
+
+    case "PATCH":
+      try{
+        const oldDir = await Dir.findById(id)
+        if(oldDir === null){res.status(404).json({message:"not found"})}
+        
+        const {dirs, docs, parent} = req.body
+        const updatedDir = dirs != null ? {dirs: dirs} : docs != null ? {docs: docs} : {parent: parent}
+
+
+        await Dir.findByIdAndUpdate(id, updatedDir)
+        res.status(200).json(updatedDir)
+      } catch (err) {res.status(500)}
+
+        break;
+
     case "DELETE":
       try {
-        const dirs = await dir.deleteMany()
-        res.json(dirs)
-      } catch (error:any) {res.status(500)}
+        const dir = await Dir.findById(id)
+        if(dir === null){res.status(404).json({message:"not found"})}
+        await dir.findByIdAndDelete(id)
+        res.json(dir)
+        } catch (error:any) {res.status(500)}
+        break;
+
+    default:
+      res.setHeader('Allow', ['GET', 'PUT', "PATCH", 'DELETE'])
+      res.status(405).end(`Method ${method} Not Allowed`) 
       break;
-  }
+    }
   
 }
   

@@ -13,6 +13,10 @@ const dirSchema = new Schema({
     dirs:{
         type: Array,
         required: true
+    },
+    parent:{
+        type: Object,
+        required: false
     }
 })
 
