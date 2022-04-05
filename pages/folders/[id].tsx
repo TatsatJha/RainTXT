@@ -4,13 +4,14 @@ import Header from "../../Components/Home/Header"
 import Main from "../../Components/Home/Main"
 
 
-export default function folders({data, dirData}:any) {
+export default function folders({data}:any) {
+  
+  const router = useRouter()
+  const id = router.query
 
-    const docs = data === undefined ? null : data
-    const dirs = dirData === undefined ? null : dirData
+  const {docs, dirs} = data
 
-    const router = useRouter()
-    const id = router.query
+  console.log(data)
 
     const refreshData = () => {
         router.replace(router.asPath);
@@ -18,7 +19,7 @@ export default function folders({data, dirData}:any) {
   return (
     <div>
         <Header></Header>
-        <Main dirId = {id} refresh={refreshData} data = {docs != null ? docs : null} dirData={dirs != null ? dirs : null}></Main>
+        <Main dirId = {id} refresh={refreshData} data = {docs != undefined ? docs : null} dirData={dirs != undefined ? dirs : null}></Main>
     </div>
   )
 }
@@ -28,9 +29,6 @@ export async function getServerSideProps({params}:any) {
     const res = await fetch(`http://localhost:3000/api/dir/${params.id}`)
     const data = await res.json()
 
-
-    const docs = data.docs != undefined ? data.docs : null
-    const dirs = data.dirs != undefined ? data.dirs : null
     // let cleanData:any = []
     // data.forEach((doc:any) => {
     //     if(doc.dir === params.id){
@@ -38,5 +36,5 @@ export async function getServerSideProps({params}:any) {
     //     }
     // });
 
-    return{ props: { docs, dirs} }
+    return{ props: { data } }
   }

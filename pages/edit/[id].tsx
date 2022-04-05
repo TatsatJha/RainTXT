@@ -35,7 +35,7 @@ export default function editDoc({ data }: any) {
   // resetText()}, [textDivisions])
 
     const handleSave = ()=>{
-      axios.put(`http://localhost:3000/api/doc/${id}`, {content:text})
+      axios.patch(`http://localhost:3000/api/doc/${id}`, {content:text})
     }
   return (
     <div className='bg-slate-50 m-0'>

@@ -10,7 +10,7 @@ export default function Main(props:any) {
   return (
     <div>
       <main>
-        <Docs refresh={props.refresh} data={props.data}></Docs>
+        <Docs refresh={props.refresh} dirId={props.dirId} data={props.data}></Docs>
         <Dirs data = {props.dirData}></Dirs>
         <NavBar data = {props.data} id={props.dirId} refresh={props.refresh}></NavBar>
       </main>

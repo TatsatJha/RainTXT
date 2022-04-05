@@ -7,7 +7,7 @@ export default function DocTitle(props:any) {
     const [open, setOpen] = useState(false)
 
     const handleTitleSave = ()=>{
-        axios.put(`http://localhost:3000/api/doc/${props.id}`, {title:title})
+        axios.patch(`http://localhost:3000/api/doc/${props.id}`, {title:title})
         setOpen(!open)
       }
   return (

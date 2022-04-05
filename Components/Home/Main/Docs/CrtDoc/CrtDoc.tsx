@@ -4,18 +4,17 @@ import {BsFileEarmarkPlus} from "react-icons/bs"
 import Router, { useRouter } from 'next/router'
 
 export default function CrtBtn(props:any) {
-  // const dirId = props.id == null ? null : props.id.id
+  const dirId = props.id == null ? null : props.id.id
 
-  const router = useRouter()
-  const idQuery = router.query
-  const id = idQuery.id
-  console.log(id)
+  console.log(dirId)
+  
     const makeDoc = async ()=>{
-      const res = await axios.post("http://localhost:3000/api/doc", {title: "Untitled", content: "", dir: id})
+      const res = await axios.post("http://localhost:3000/api/doc", {title: "Untitled", content: "", dir: dirId})
       props.refresh()
       console.log(res)
-      if(id !== null){
-        axios.patch(`http://localhost:3000/api/dir/${id}`, {docs: res.data})
+      if(dirId !== null){
+        const res2 = await axios.patch(`http://localhost:3000/api/dir/${dirId}`, {docs: res.data})
+        console.log(res2)
       }
     }
   return (

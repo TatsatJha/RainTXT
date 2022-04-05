@@ -36,7 +36,11 @@ async function handler( req: NextApiRequest, res: NextApiResponse) {
         try {
             const doc = await Doc.findById(id)
             if(doc === null){res.status(404).json({message:"not found"})}
+
             await Doc.findByIdAndDelete(id)
+
+
+
             res.json(doc)
         } catch (error:any) {res.status(500)}
         break;

@@ -13,7 +13,7 @@ export default function docs(props:any) {
     
     return (
         <div className='grid grid-cols-4 gap-4 justify-evenly ml-64'>
-            {doc == null ? <></>: doc.map((doc) => (<Doc data = {{...doc}}> </Doc>))}
+            {doc == null ? <></>: doc.map((doc) => (<Doc dirId = {props.dirId} data = {{...doc}}> </Doc>))}
         </div>
     )
 }

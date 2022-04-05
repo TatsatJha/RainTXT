@@ -20,7 +20,7 @@ export default function doc(props: any) {
       <h2>{props.data.date}</h2>
       
       <div className='flex justify-between px-4'>
-        <DltDoc setDeleted={setDeleted} refresh= {props.refresh} docCount={props.docCount} setDocCount={props.setDocCount} id = {props.data._id} ></DltDoc>
+        <DltDoc dirId={props.dirId} setDeleted={setDeleted} refresh= {props.refresh} docCount={props.docCount} setDocCount={props.setDocCount} id = {props.data._id} ></DltDoc>
         <EditDoc id = {props.data._id} ></EditDoc>
       </div>
 
