@@ -38,7 +38,7 @@ async function handler( req: NextApiRequest, res: NextApiResponse) {
       try {
         const dir = await Dir.findById(id)
         if(dir === null){res.status(404).json({message:"not found"})}
-        await dir.findByIdAndDelete(id)
+        await Dir.findByIdAndDelete(id)
         res.json(dir)
         } catch (error:any) {res.status(500)}
         break;

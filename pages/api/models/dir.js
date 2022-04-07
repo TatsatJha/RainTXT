@@ -8,7 +8,7 @@ const dirSchema = new Schema({
     },
     docs:{
         type:Array,
-        required: true
+        required: false
     },
     dirs:{
         type: Array,

@@ -3,11 +3,13 @@ import React, { useState } from 'react'
 import {BsFolderPlus} from "react-icons/bs"
 
 export default function CrtDir(props: any) {
+  
 const [open, setOpen] = useState(false)
 const [value, setValue] = useState("Untitled Folder")
     const  makeDir = ()=>{
         axios.post("http://localhost:3000/api/dir", {title: value, docs: [], dirs:[]})
         setOpen(!open)
+        props.refresh()
     }
 
     const abort = ()=>{

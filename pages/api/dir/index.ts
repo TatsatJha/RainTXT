@@ -16,7 +16,6 @@ async function handler( req: NextApiRequest, res: NextApiResponse) {
     case "POST":
       const dirEntry = new dir({
         title: req.body.title,
-        docs: {}
       })
       try {
         const newDir = await dirEntry.save()

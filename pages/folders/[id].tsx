@@ -7,7 +7,7 @@ import Main from "../../Components/Home/Main"
 export default function folders({data}:any) {
   
   const router = useRouter()
-  const id = router.query
+  const id = router.query.id
 
   const {docs, dirs} = data
 
@@ -19,7 +19,7 @@ export default function folders({data}:any) {
   return (
     <div>
         <Header></Header>
-        <Main dirId = {id} refresh={refreshData} data = {docs != undefined ? docs : null} dirData={dirs != undefined ? dirs : null}></Main>
+        <Main dirId = {id} refresh={refreshData} docData = {docs} dirData={dirs}></Main>
     </div>
   )
 }

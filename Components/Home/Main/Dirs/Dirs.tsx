@@ -10,11 +10,11 @@ export default function Dirs(props:any) {
         const getDirs = async () => {
             setDirs(props.data)
         }
-    getDirs()}, [dir])
+    getDirs()}, )
 
     return (
         <div className='grid grid-cols-4 gap-4 justify-evenly ml-64 my-4'>
-            {dir == null ? <></>: dir.map((dirs) => (<Dir title={dirs.title} id={dirs._id} v={dirs._v}></Dir>))}
+            {dir == null ? <></> : dir.map((dirs) => (<Dir title={dirs.title} id={dirs._id} v={dirs._v}></Dir>))}
         </div>
     )
 }
