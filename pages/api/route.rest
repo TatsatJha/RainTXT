@@ -1,33 +1,18 @@
 GET http://localhost:3000/api/doc
 
 ###
-POST http://localhost:3000/api/doc
+POST http://localhost:3000/api/dir
 Content-Type: application/json
 
 {
-    "title": "New thing again", 
-    "content": "",
-    "dir": "6256e3832fa20200aebc86da"
+    "title": "New Thing 2", 
+    "docs": [],
+    "dirs": [],
+    "parent": "62572b15aab30f9636a38ed9"
 }
 
 ###
-PUT http://localhost:3000/edit/622feee4ab01d44d4cb0543e
-Content-Type:  application/json
-
-{
-    "content": ""
-}
+PATCH  http://localhost:3000/api/dir/
 
 ###
-GET http://localhost:3000/api/dir/624b7d5a75d48c705f5a6688
-
-###
-PATCH http://localhost:3000/api/dir/624b7d5a75d48c705f5a6688
-Content-Type:  application/json
-
-{
-    "docs": ["But now we have to adjust"]
-}
-
-###
-DELETE http://localhost:3000/api/dir/624f417c6a79cbfe3ec77f09
+DELETE http://localhost:3000/api/dir/

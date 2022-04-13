@@ -15,7 +15,7 @@ const dirSchema = new Schema({
         required: true
     },
     parent:{
-        type: Number,
+        type: String,
         required: false
     }
 })

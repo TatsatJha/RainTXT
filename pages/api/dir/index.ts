@@ -4,9 +4,12 @@ import dir from "../models/dir"
 
 
 async function handler( req: NextApiRequest, res: NextApiResponse) {
+  const {
+    method,
+    body
+  } = req
 
-
-  switch (req.method){
+  switch (method){
     case "GET":
       try {
         const dirs = await dir.find()
@@ -15,7 +18,9 @@ async function handler( req: NextApiRequest, res: NextApiResponse) {
       break;
     case "POST":
       const dirEntry = new dir({
-        title: req.body.title,
+        title: body.title,
+        parent: body.parent,
+        
       })
       try {
         const newDir = await dirEntry.save()

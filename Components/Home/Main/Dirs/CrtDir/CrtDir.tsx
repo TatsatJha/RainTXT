@@ -6,9 +6,18 @@ export default function CrtDir(props: any) {
   
 const [open, setOpen] = useState(false)
 const [value, setValue] = useState("Untitled Folder")
-    const  makeDir = ()=>{
-        axios.post("http://localhost:3000/api/dir", {title: value, docs: [], dirs:[]})
+
+const dirId = props.dirId
+
+const  makeDir = async ()=>{
+
         setOpen(!open)
+        await axios.post("http://localhost:3000/api/dir", {title: value, docs: [], dirs:[], parent: dirId})
+        if(dirId !== null){
+          const parent = await axios.get(`http://localhost:3000/api/dir/${dirId}`)
+          const dirs = [...(await parent).data.dirs, dirId]
+          await axios.patch(`http://localhost:3000/api/dir/${dirId}`, {dirs: dirs})
+        }
         props.refresh()
     }
 
