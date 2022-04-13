@@ -26,7 +26,7 @@ async function handler( req: NextApiRequest, res: NextApiResponse) {
         const newDoc = await docEntry.save()
         res.status(201).json(newDoc)
       } catch (error: any) {
-        res.status(400).json(error.message)
+        res.status(500).json(error.message)
       }
       break;
     // case "DELETE":

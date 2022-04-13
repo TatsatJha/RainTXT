@@ -5,19 +5,20 @@ import Router, { useRouter } from 'next/router'
 
 export default function CrtBtn(props:any) {
   const dirId = props.dirId == null ? null : props.dirId
-
   
     const makeDoc = async ()=> {
-
+      console.log(dirId)
       const res = await axios.post("http://localhost:3000/api/doc", {title: "Untitled", content: "", dir: dirId})
       
       if(dirId !== null){
         console.log(dirId)
         
         const dirData = await axios.get(`http://localhost:3000/api/dir/${dirId}`)
+
         const existingDocs = dirData.data.docs
         const newDoc = res.data
         const newData = [...existingDocs, newDoc]
+
         await axios.patch(`http://localhost:3000/api/dir/${dirId}`, {docs: newData})
         
       }

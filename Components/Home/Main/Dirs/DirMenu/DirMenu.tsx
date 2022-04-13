@@ -8,8 +8,8 @@ const DltBtn = (props:any) =>{
     }
 
     return(
-        <div>
-            <button className='block' onClick={deleteHandler}> Delete Folder </button>
+        <div className='block'>
+            <button className='px-4 py-2' onClick={deleteHandler}> Delete Folder </button>
         </div>
     )
 }
@@ -20,7 +20,7 @@ const AddDoc = (props:any) =>{
 
     return(
         <div>
-            <button className='block' onClick={addHandler}> Add File </button>
+            <button className='px-4 py-2' onClick={addHandler}> Add File </button>
         </div>
     )
 }
@@ -29,10 +29,14 @@ export default function DirMenu(props:any) {
 
     if(props.open){
         return (
-          <div className='flex align-center absolute bg-slate-300 w-64'>
-              <AddDoc></AddDoc>
-              <DltBtn></DltBtn>
-          </div>
+          <ul className='absolute -mt-12 bg-slate-300 w-fit hover:'>
+              <li>
+                <AddDoc></AddDoc>
+              </li>
+              <li>
+                <DltBtn></DltBtn>
+              </li>
+          </ul>
         )
     }
     else{

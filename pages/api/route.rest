@@ -7,7 +7,7 @@ Content-Type: application/json
 {
     "title": "New thing again", 
     "content": "",
-    "dir": "624b7d5a75d48c705f5a6688"
+    "dir": "6256e3832fa20200aebc86da"
 }
 
 ###
@@ -30,4 +30,4 @@ Content-Type:  application/json
 }
 
 ###
-DELETE http://localhost:3000/api/dir/624f2584d8a6413f32d5a627
+DELETE http://localhost:3000/api/dir/624f417c6a79cbfe3ec77f09
