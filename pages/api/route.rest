@@ -8,7 +8,7 @@ Content-Type: application/json
     "title": "New Thing 2", 
     "docs": [],
     "dirs": [],
-    "parent": "62572b15aab30f9636a38ed9"
+    "parent": ""
 }
 
 ###

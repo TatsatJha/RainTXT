@@ -13,7 +13,13 @@ async function handler( req: NextApiRequest, res: NextApiResponse) {
     case "GET":
       try {
         const dirs = await dir.find()
-        res.json(dirs)
+        let newDirs:Array<any> = []
+        dirs.forEach((dir)=>{
+          if(dir.parent == false){
+            newDirs.push(dir)
+          }
+        })
+        res.json(newDirs)
       } catch (err){res.status(500)}
       break;
     case "POST":
