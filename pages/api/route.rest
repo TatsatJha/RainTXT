@@ -8,11 +8,23 @@ Content-Type: application/json
     "title": "New Thing 2", 
     "docs": [],
     "dirs": [],
-    "parent": ""
+    "parent": "625ec8169cbbd4dded1ca96e"
 }
 
 ###
-PATCH  http://localhost:3000/api/dir/
+PATCH  http://localhost:3000/api/dir/626038052b9ccf3dccfd7e35
+Content-Type: application/json
+
+{
+    "dirs": [{
+  "title": "New Thing 2",
+  "docs": [],
+  "dirs": [],
+  "parent": "625ec8169cbbd4dded1ca96e",
+  "_id": "625ed2d89cbbd4dded1caa0e",
+  "__v": 0
+}]
+}
 
 ###
 DELETE http://localhost:3000/api/dir/

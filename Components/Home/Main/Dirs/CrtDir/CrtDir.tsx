@@ -13,12 +13,15 @@ const dirId = props.dirId
 const  makeDir = async ()=>{
 
         setOpen(!open)
-        await axios.post("http://localhost:3000/api/dir", {title: value, docs: [], dirs:[], parent: (dirId) ? dirId : ""})
-        // if(dirId !== null){
-        //   const parent = await axios.get(`http://localhost:3000/api/dir/${dirId}`)
-        //   const dirs = [...(await parent).data.dirs, dirId]
-        //   await axios.patch(`http://localhost:3000/api/dir/${dirId}`, {dirs: dirs})
-        // }
+        const newDir = await axios.post("http://localhost:3000/api/dir", {title: value, docs: [], dirs:[], parent: (dirId != undefined) ? dirId : ""})
+        console.log(newDir)
+
+        if(dirId != null){
+          const parent = await axios.get(`http://localhost:3000/api/dir/${dirId}`)
+          const dirs = [...parent.data.dirs, newDir.data]
+          console.log(dirId)
+          await axios.patch(`http://localhost:3000/api/dir/${dirId}`, {dirs: dirs})
+        }
         props.refresh()
     }
 
