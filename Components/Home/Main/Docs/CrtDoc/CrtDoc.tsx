@@ -7,7 +7,8 @@ export default function CrtBtn(props:any) {
   const dirId = props.dirId == null ? null : props.dirId
   
     const makeDoc = async ()=> {
-      console.log(dirId)
+
+      await props.refresh()
       const res = await axios.post("http://localhost:3000/api/doc", {title: "Untitled", content: "", dir: dirId})
       
       if(dirId !== null){
@@ -22,7 +23,7 @@ export default function CrtBtn(props:any) {
         await axios.patch(`http://localhost:3000/api/dir/${dirId}`, {docs: newData})
         
       }
-      props.refresh()
+
     }
   return (
     <div className='flex p-6'>

@@ -5,11 +5,12 @@ import axios from 'axios'
 export default function DltDoc(props: any) {
 
     const handleDelete = async () =>{
-        props.setDeleted(true)
 
         const doc = await axios.delete(`http://localhost:3000/api/doc/${props.id}`)
+        console.log(props.dirId)
 
-
+        if(props.dirId){
+          
           const dirId = doc.data.dir
           const dir = await axios.get(`http://localhost:3000/api/dir/${dirId}`)
           const docs = dir.data.docs
@@ -22,9 +23,12 @@ export default function DltDoc(props: any) {
           });
 
           console.log(newDocs)
-          
 
+          
           await axios.patch(`http://localhost:3000/api/dir/${dirId}`, {docs: newDocs}) //update directory to remove doc object from array
+        
+        }
+        props.setDeleted(true)
 
     }
     

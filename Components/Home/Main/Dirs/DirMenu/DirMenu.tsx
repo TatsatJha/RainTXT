@@ -13,26 +13,12 @@ const DltBtn = (props:any) =>{
         </div>
     )
 }
-const AddDoc = (props:any) =>{
-    const addHandler = () =>{
-        axios.post(`http://localhost:3000/api/doc`, {})
-    }
-
-    return(
-        <div>
-            <button className='px-4 py-2' onClick={addHandler}> Add File </button>
-        </div>
-    )
-}
 
 export default function DirMenu(props:any) {
 
     if(props.open){
         return (
-          <ul className='absolute -mt-12 bg-slate-300 w-fit hover:'>
-              <li>
-                <AddDoc></AddDoc>
-              </li>
+          <ul className='relative bg-slate-300 w-fit'>
               <li>
                 <DltBtn></DltBtn>
               </li>
